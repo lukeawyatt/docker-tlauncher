@@ -43,7 +43,7 @@ xhost +local:docker
 You can build this image directly from GitHub.  This scenario can be utilized when no changes to the image are required.
 
 ```shell
-docker build -t tlauncher github.com/lukeawyatt/docker-tlauncher
+docker build -t tlauncher https://github.com/lukeawyatt/docker-tlauncher.git#main:source
 ```
 
 &nbsp;
@@ -54,7 +54,7 @@ If you need to **debug** or **modify** this Dockerfile, pull the repository down
 
 ```shell
 git clone https://github.com/lukeawyatt/docker-tlauncher.git
-cd docker-tlauncher
+cd docker-tlauncher/source
 docker build -t tlauncher .
 ```
 
