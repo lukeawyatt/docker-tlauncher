@@ -22,7 +22,7 @@
 ###############################################################################################################################
 ```
 
-This project offers a quick way to spin up the TLauncher Minecraft client within a Docker container.  This can be used to 
+This project offers a quick way to spin up the TLauncher Minecraft client within a Docker container.
 
 This repository is derived from [dm9pZCAq's](https://github.com/dm9pZCAq/docker-tlauncher) repository.
 
@@ -62,7 +62,7 @@ docker build -t tlauncher .
 
 ### Run the Container
 
-To spin up the container from your local image using the Docker CLI, run the following command.
+To spin up the container from your local image using the Docker CLI, run the following command.  You can make some simple modifications here to adjust the mount point of your volume in this line `-v $HOME/.minecraft/:/minecraft` where **$HOME/.minecraft** represents the directory path local to your machine.  Note, the volume `-v /tmp/.X11-unix:/tmp/.X11-unix` is utilized by x11 and required for proper display.  Lastly, the addition of `--device /dev/snd` is meant to mount your sound devices.  This might need some tweaking depending on your setup.  Feel free to submit a PR if you have any further adjustments.
 
 ```
 docker run \
@@ -73,4 +73,3 @@ docker run \
     -e DISPLAY=$DISPLAY \
     tlauncher
  ```
- 
