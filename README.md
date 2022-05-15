@@ -22,7 +22,7 @@
 ###############################################################################################################################
 ```
 
-This project offers a quick way to spin up the TLauncher Minecraft client within a Docker container.
+This project offers a quick way to spin up the TLauncher Minecraft client within a Docker container.  There are numerous use cases for this, and if you've landed on this project, chances are you already have good reason.  This project uses the **OFFICIAL** TLauncher jar and not a self-hosted alternative.  I'll do my best to keep this reference up to date, but drop an issue down if you're finding it broken.
 
 This repository is derived from [dm9pZCAq's](https://github.com/dm9pZCAq/docker-tlauncher) repository.
 
@@ -42,17 +42,17 @@ xhost +local:docker
 
 You can build this image directly from GitHub.  This scenario can be utilized when no changes are required.
 
-```
+```shell
 docker build -t tlauncher github.com/lukeawyatt/docker-tlauncher
 ```
 
 &nbsp;
 
-### Build the image locally
+### Or build the image locally
 
 If you need to debug or modify this Dockerfile, pull the repository down, make your changes, and run the build locally.
 
-```
+```shell
 git clone https://github.com/lukeawyatt/docker-tlauncher.git
 cd docker-tlauncher
 docker build -t tlauncher .
