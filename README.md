@@ -38,7 +38,7 @@ xhost +local:docker
 
 &nbsp;
 
-### Build the image from GitHub
+### Build the image from GitHub:
 
 You can build this image directly from GitHub.  This scenario can be utilized when no changes to the image are required.
 
@@ -48,7 +48,7 @@ docker build -t tlauncher https://github.com/lukeawyatt/docker-tlauncher.git#mai
 
 &nbsp;
 
-### Or build the image locally
+### Or build the image locally:
 
 If you need to **debug** or **modify** this Dockerfile, pull the repository down, make your changes, and run the build locally.
 
@@ -60,7 +60,7 @@ docker build -t tlauncher .
 
 &nbsp;
 
-### Run the Container
+### Run the Container:
 
 To spin up the container from your local image using the Docker CLI, **run** the following command.  You can make some simple modifications here to adjust the mount point of your volume in this line `-v $HOME/.minecraft/:/minecraft` where **$HOME/.minecraft** represents the directory path local to your machine.  Note, the volume `-v /tmp/.X11-unix:/tmp/.X11-unix` is utilized by x11 and required for proper display.  Lastly, the addition of `--device /dev/snd` is meant to mount your sound devices.  This might need some tweaking depending on your setup.  Feel free to submit a PR if you have any further adjustments.
 
