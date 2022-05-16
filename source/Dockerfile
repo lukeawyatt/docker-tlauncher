@@ -36,7 +36,8 @@ RUN mkdir -p /opt/tlauncher && \
     curl -sL "https://tlauncher.org/jar" -o '/opt/tlauncher/tlauncher.zip' && \
     unzip /opt/tlauncher/tlauncher.zip -d /opt/tlauncher && \
     chown minecraft:minecraft -R /opt/tlauncher && \
-    mv /opt/tlauncher/TLauncher-2.841.jar /opt/tlauncher/tlauncher.jar
+    JAR_FILE=$(cd /opt/tlauncher && ls TLauncher-*.jar) && \
+    mv /opt/tlauncher/$JAR_FILE /opt/tlauncher/tlauncher.jar
 
 # LAYER 4: CLEANUP
 RUN apt-get remove -y unzip curl
