@@ -28,6 +28,10 @@ This repository is derived from [dm9pZCAq's](https://github.com/dm9pZCAq/docker-
 
 &nbsp;
 
+---
+
+&nbsp;
+
 ### Environment Prerequisites:
 
 Prior to running this image, you'll need to ***permit*** Docker on the local machine to connect to the X window display.  Run this command to do so:
@@ -35,10 +39,6 @@ Prior to running this image, you'll need to ***permit*** Docker on the local mac
 ```shell
 xhost +local:docker
 ```
-
-&nbsp;
-
----
 
 &nbsp;
 
