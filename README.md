@@ -38,6 +38,10 @@ xhost +local:docker
 
 &nbsp;
 
+---
+
+&nbsp;
+
 ### Build the image from GitHub:
 
 You can build this image directly from GitHub.  This scenario can be utilized when no changes to the image are required.
@@ -73,3 +77,14 @@ docker run \
     -e DISPLAY=$DISPLAY \
     tlauncher
  ```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+### Next Action:
+
+* Account for java versioning requirements (8, 11, 17)
+* Figure out the state of GPU support (I'm personally behind on this understanding)
