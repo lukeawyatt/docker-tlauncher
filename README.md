@@ -1,4 +1,4 @@
-```shell
+```bash
 ###############################################################################################################################
 ##                                                                                                                           ##
 ##  ███    ███ ██ ███    ██ ███████  ██████ ██████   █████  ███████ ████████                  M A S T E R   O V E R V I E W  ##
@@ -66,7 +66,7 @@ docker build -t tlauncher .
 
 ### Run the Container:
 
-To spin up the container from your local image using the Docker CLI, **run** the following command.  You can make some simple modifications here to adjust the mount point of your volume in this line `-v $HOME/.minecraft/:/minecraft` where **$HOME/.minecraft** represents the directory path local to your machine.  Note, the volume `-v /tmp/.X11-unix:/tmp/.X11-unix` is utilized by x11 and required for proper display.  Lastly, the addition of `--device /dev/snd` is meant to mount your sound devices.  This might need some tweaking depending on your setup.  Feel free to submit a PR if you have any further adjustments.
+To spin up the container from your local image using the Docker CLI, **run** the following command.  You can make some simple modifications here to adjust the mount point of your volume in this line `-v $HOME/.minecraft/:/minecraft` where **$HOME/.minecraft** represents the directory path local to your machine.  Note, the volume `-v /tmp/.X11-unix:/tmp/.X11-unix` is utilized by x11 and required for proper display.  There are a few audio options in which you might need to experiment with to get working properly.  See the next section for some suggestions.
 
 ```
 docker run \
@@ -77,6 +77,28 @@ docker run \
     -e DISPLAY=$DISPLAY \
     tlauncher
  ```
+
+&nbsp;
+
+### Audio:
+
+Docker Container Audio is hands-down the most finicky portion of this whole process.  If you're not too familiar with how your audio is setup on your local machine, try the **ALSA CONFIGURATION** first and move forward from there.  Feel free to submit a PR if you've discovered any adjustments that have worked with your particular setup.  My personal machine works well with the **PULSEAUDIO CONFIGURATION**.
+
+> **ALSA CONFIGURATION**: Add to docker run
+> 
+> ```dockerfile
+> --device /dev/snd
+> ```
+
+&nbsp;
+
+> **PULSEAUDIO CONFIGURATION**: Add to docker run
+> 
+> ```dockerfile
+> --volume /run/user/$(id -u)/pulse/native:/run/user/$(id -u)/pulse/native
+> --env PULSE_SERVER=unix:/run/user/$(id -u)/pulse/native
+> --user $(id -u):$(id -g)
+> ```
 
 &nbsp;
 

@@ -24,11 +24,11 @@
 FROM docker.io/debian
 
 # LAYER 1: REQUIREMENTS
-RUN apt-get update && \
-    apt-get upgrade && \
-    apt-get install -y jq curl procps fonts-dejavu openjdk-17-jre openjfx default-jdk x11-xserver-utils unzip
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    apt-get -y install jq curl procps fonts-dejavu openjdk-17-jre openjfx default-jdk x11-xserver-utils unzip pulseaudio
 
-# LAYER 2: CREATE USER
+# LAYER 2: CREATE USER AND AUDIO GROUP
 RUN useradd -d /minecraft -s /bin/sh minecraft
 
 # LAYER 3: DOWNLOAD AND INSTALL TLAUNCHER
@@ -40,7 +40,7 @@ RUN mkdir -p /opt/tlauncher && \
     mv /opt/tlauncher/$JAR_FILE /opt/tlauncher/tlauncher.jar
 
 # LAYER 4: CLEANUP
-RUN apt-get remove -y unzip curl
+RUN apt-get -y remove unzip curl
 
 # LAYER 5: SPECIFY USER
 USER minecraft
