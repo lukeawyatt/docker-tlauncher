@@ -64,9 +64,13 @@ docker build -t tlauncher .
 
 &nbsp;
 
+---
+
+&nbsp;
+
 ### Run the Container:
 
-To spin up the container from your local image using the Docker CLI, **run** the following command.  You can make some simple modifications here to adjust the mount point of your volume in this line `-v $HOME/.minecraft/:/minecraft` where **$HOME/.minecraft** represents the directory path local to your machine.  Note, the volume `-v /tmp/.X11-unix:/tmp/.X11-unix` is utilized by x11 and required for proper display.  There are a few audio options in which you might need to experiment with to get working properly.  See the next section for some suggestions.
+To spin up the container from your local image using the Docker CLI, **run** the following command.  You can make some simple modifications here to adjust the mount point of your volume in this line `-v $HOME/.minecraft/:/minecraft` where **$HOME/.minecraft** represents the directory path local to your machine.  Note, the volume `-v /tmp/.X11-unix:/tmp/.X11-unix` is utilized by x11 and required for proper display.  There are a few audio options that you might need to experiment with to get the sound passthrough working properly.  See the next section for some suggestions.
 
 ```
 docker run \
@@ -83,6 +87,8 @@ docker run \
 ### Audio:
 
 Docker Container Audio is hands-down the most finicky portion of this whole process.  If you're not too familiar with how your audio is setup on your local machine, try the **ALSA CONFIGURATION** first and move forward from there.  Feel free to submit a PR if you've discovered any adjustments that have worked with your particular setup.  My personal machine works well with the **PULSEAUDIO CONFIGURATION**.
+
+&nbsp;
 
 > **ALSA CONFIGURATION**: Add to docker run
 > 
