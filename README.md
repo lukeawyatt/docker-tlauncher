@@ -22,6 +22,9 @@
 ###############################################################################################################################
 ```
 
+> [!WARNING]
+> This project is currently in a broken state.  Please feel free to contribute.
+
 This project offers a quick way to spin up the **TLauncher Minecraft Client** within a Docker container.  There are numerous use cases for this, and if you've landed on this project, chances are you already have good reason.  This project uses the **OFFICIAL** TLauncher jar and not a self-hosted alternative.  I'll do my best to keep this reference up to date, but drop an issue down if you're finding it broken.
 
 This repository is derived from [dm9pZCAq's](https://github.com/dm9pZCAq/docker-tlauncher) Dockerfile.
@@ -114,5 +117,6 @@ Docker Container Audio is hands-down the most finicky portion of this whole proc
 
 ### Next Action:
 
+* Handle the TLauncher update-on-load scenario
 * Account for java versioning requirements (8, 11, 17)
 * Figure out the state of GPU support (I'm personally behind on this understanding)
